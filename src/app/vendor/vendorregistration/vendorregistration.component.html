@@ -1,0 +1,50 @@
+<div class="login-register">
+    <div class="login-register-box">
+        <mat-card>
+            <div class="text-center">
+                <img class="logo-image" src="../../../assets/images/logo2Copy.png" alt="Feed The Need">
+                <h4 style="padding:.5000em;font-family: sans-serif;font-size: medium;font-weight: bold;">Vendor Registration</h4>
+            </div>
+            <mat-card-content>
+                <form [formGroup]="vendorForm" (ngSubmit)="onFormSubmit(vendorForm.value)">
+                    <mat-form-field>
+                        <input matInput placeholder="User Name" formControlName="user_name" required>
+                       <!-- <mat-icon matSuffix>account_circle</mat-icon>
+                       --> <mat-error *ngIf="submitted && vf['user_name'].hasError('required')">You must include your user name
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Enter your email" formControlName="restarunt_email" required>
+                        <!--<mat-icon matSuffix>email</mat-icon>
+                        --><mat-error *ngIf="submitted && vf['restarunt_email'].hasError('required')">You must inlcude your mail address
+                        </mat-error>
+                        <mat-error *ngIf="submitted && vf['restarunt_email'].hasError('email')">You must inlcude your valid mail address
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Enter your password" formControlName="password" required>
+                       <!-- <mat-icon matSuffix>lock</mat-icon>
+                      -->  <mat-error *ngIf="submitted && vf['password'].hasError('required')">You must inlcude your password
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Re-enter your password" formControlName="re_password" (change)="onChange($event)" required>
+                        <mat-error *ngIf="submitted && vf['re_password'].hasError('required')">You must enter the password again</mat-error>
+                        <mat-error *ngIf="submitted && vf['password'].hasError('required')">You must inlcude your password
+                        </mat-error>
+                        <mat-error *ngIf="submitted && notSame" >Password Doesn't Match
+                        </mat-error>
+                    </mat-form-field>
+                    <button mat-raised-button class="submit-button" color="primary" type="submit">
+                        <span>Create Your Account</span>
+                    </button>
+                    <div class="text-center" style="padding:.5000em;font-family: sans-serif;font-size: medium;">
+                        <span>Already have an account?
+                            <a routerLink="../login"> Login</a>
+                        </span>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

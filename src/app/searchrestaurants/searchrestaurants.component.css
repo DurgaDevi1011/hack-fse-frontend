@@ -1,0 +1,29 @@
+.res-name{
+    margin-top: 10px;
+    font-family: ProximaNova;
+
+}
+.res_cat{
+    margin-top: 10px;
+    font-family: ProximaNova;
+}
+.rect{
+    background-color:#48c479;
+}
+figure ul li{
+    float: left;
+    padding-right: 30px;
+}
+figure ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.pmzeor{
+    padding: 0px;
+    margin: 0px;
+}
+.mt5{
+    margin-top: 5px;
+}

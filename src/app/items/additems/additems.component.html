@@ -1,0 +1,69 @@
+<div class="profile-card">
+  <mat-card>
+    <div class="text-center">
+      <h4 style="font-family: sans-serif;font-size: x-large;font-weight: bold;">Item details</h4>
+    </div>
+    <mat-card-content>
+      <form [formGroup]="itemForm" (ngSubmit)="onFormSubmit(itemForm.value)">
+        <div class="profile-container">
+          <mat-form-field>
+            <input matInput placeholder="Item Id" formControlName="item_id" required>
+            <mat-error *ngIf="submitted && vif['item_id'].hasError('required')">You must include item Id
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Item Name" formControlName="item_name" required>
+            <mat-error *ngIf="submitted && vif['item_name'].hasError('required')">You must include item name
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Enter Item Description" formControlName="item_description" required>
+            <mat-error *ngIf="submitted && vif['item_description'].hasError('required')">You must inlcude your
+              password
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Enter Item Price" formControlName="item_price" required>
+            <mat-error *ngIf="submitted && vif['item_price'].hasError('required')">You must enter the item price
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Choose Available Time" formControlName="item_available_at">
+              <mat-option *ngFor="let type of item_available_at" [value]="type.value">
+                {{type.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && vif['item_available_at'].hasError('required')">You must chose item available
+              time
+            </mat-error>
+          </mat-form-field>
+          <div class="test">
+            <section class="example-section">
+              <label>Item Type</label>
+              <mat-radio-group formControlName="item_type" required>
+                <mat-radio-button class="example-margin" value=true>Snack</mat-radio-button>
+                <mat-radio-button class="example-margin" default value=false>Dishes</mat-radio-button>
+              </mat-radio-group>
+            </section>
+            <mat-error *ngIf="submitted && vif['item_type'].hasError('required')">You must chose Item Type
+            </mat-error>
+          </div>
+          <div>
+            <input type="file" (change)="onFileChange($event)" />
+            <input type="hidden" name="fileHidden" formControlName="item_image" />
+
+            <img [src]="image_url" height=200px style="padding-top: 14px;
+            padding-bottom: 14px;">
+            <mat-error *ngIf="submitted && vif['item_image'].hasError('required')">You must include Restarunt
+              Image
+            </mat-error>
+          </div>
+          <div class="button-row">
+            <button mat-raised-button type="submit" class="save-button">Save</button>
+            <button mat-raised-button type="button" class="submit-button" color="warn">Reset</button>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

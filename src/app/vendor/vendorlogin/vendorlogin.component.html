@@ -1,0 +1,55 @@
+<div class="login-register">
+  <div class="login-register-box">
+    <mat-card>
+      <div class="text-center" >
+        <img class="logo-image" src="../../../assets/images/logo2Copy.png" alt="Feed The Need">
+        <h4 style="padding:.5000em;font-family: sans-serif;font-size: medium;font-weight: bold;">Vendor Login</h4>
+      </div>
+      <mat-card-content>
+        <form [formGroup]="vendorLoginForm" (ngSubmit)="onFormSubmit(vendorLoginForm.value)">
+          <div class="signin-container">
+            <mat-form-field>
+              <input matInput placeholder="Enter your user name" formControlName="user_name">
+              <mat-error *ngIf="submitted && vf['user_name'].hasError('required')">You must include your user name
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Enter your password" formControlName="password" [type]="!hide ? 'password' : 'text'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error *ngIf="submitted && vf['password'].hasError('required')">You must include your password
+              </mat-error>
+            </mat-form-field>
+            <button mat-raised-button class="submit-button" color="primary" type="submit">
+              <span>Login</span>
+            </button>
+            <div class="text-center" style="padding:.5000em;font-family: sans-serif;font-size: medium;">
+              <span>Troubling with password?
+                <a routerLink="../forgotpassword"> Forgot password</a>
+              </span>
+            </div>
+            <div class="text-center" style="padding:.5000em;font-family: sans-serif;font-size: medium;">
+              <span>Don't have an account?
+                <a routerLink="../registration"> Register</a>
+              </span>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<!-- <div class="signin-card">
+  <mat-form-field>
+    <input matInput placeholder="Input">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Textarea"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select">
+      <mat-option value="option">Option</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div> -->

@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <form class="form-signin" novalidate=""  [formGroup]="loginForm" (ngSubmit)="login()" >       
+    <h2 class="form-signin-heading text-center">Login</h2>
+    <p *ngIf="message" class="text-center text-danger">{{message}}</p>
+    <input type="text" class="form-control" name="user_name" formControlName="user_name"
+         placeholder="Username" autocomplete="user_name" required />
+         
+    <input type="password" class="form-control" name="password" name="password" 
+     formControlName="password"     placeholder="Password" autocomplete="current-password" required />      
+    <button class="btn btn-lg btn-primary btn-block" [disabled]="!loginForm.valid" type="submit">Login</button>   
+  </form>
+</div>

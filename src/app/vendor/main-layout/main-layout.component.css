@@ -1,0 +1,29 @@
+.example-spacer {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.icon {
+  resize: 20px;
+}
+.custom-space{
+  padding: 200px;
+}
+.sidenav{
+  width: 240px;
+  font-family: sans-serif;
+  font-size: medium;
+  font-weight: 300px;
+}
+.header-image {
+  background-image: url('../../../assets/images/logo2Copy.png');
+  background-size: cover;
+}
+
+.title-spacer {
+  margin-left: 8px;
+}
+
+.mat-icon-button {
+  font-weight: 0;
+}

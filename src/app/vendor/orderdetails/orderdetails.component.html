@@ -1,0 +1,71 @@
+<div class="profile-card">
+  <mat-card>
+    <div class="text-center">
+      <h4 style="font-family: sans-serif;font-size: x-large;font-weight: bold;">Order Details</h4>
+    </div>
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="Order_Id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Order ID </th>
+          <td mat-cell *matCellDef="let row"> {{row._id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Item_Id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Item ID </th>
+          <td mat-cell *matCellDef="let row"> {{row.item_id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Item_Count">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Item Count </th>
+          <td mat-cell *matCellDef="let row"> {{row.item_count}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Item_Amount">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Item Amount </th>
+          <td mat-cell *matCellDef="let row"> {{row.amount}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Order_Placed_Date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Placed Date </th>
+          <td mat-cell *matCellDef="let row"> {{row.placed_date| date: format}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Order_Delivered_Date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Delivered Date </th>
+          <td mat-cell *matCellDef="let row"> {{row.delivered_date| date: format}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Item_Status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Item Status </th>
+          <td mat-cell *matCellDef="let row"> {{row.active_status}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Accept">
+          <th mat-header-cell *matHeaderCellDef> Accept </th>
+          <td mat-cell *matCellDef="let row"><button mat-icon-button>
+              <mat-icon aria-label="Example icon-button with a heart icon" color="primary" (click)=acceptOrder(row._id)>
+                done
+              </mat-icon>
+            </button></td>
+        </ng-container>
+        <ng-container matColumnDef="Reject">
+          <th mat-header-cell *matHeaderCellDef> Reject </th>
+          <td mat-cell *matCellDef="let row"><button mat-icon-button>
+              <mat-icon aria-label="Example icon-button with a heart icon" color="warn" (click)=rejectOrder(row._id)>
+                cancel
+              </mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Delivered">
+          <th mat-header-cell *matHeaderCellDef> Deliver </th>
+          <td mat-cell *matCellDef="let row"><button mat-icon-button style="color: green">
+              <mat-icon aria-label="Example icon-button with a heart icon" (click)=deliveredOrder(row._id)>done_all
+              </mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>

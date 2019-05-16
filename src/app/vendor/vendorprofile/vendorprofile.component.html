@@ -1,0 +1,143 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="vendorProfileForm1">
+      <div class="profile-card">
+        <mat-card>
+          <div class="text-center">
+            <h4 style="font-family: sans-serif;font-size: x-large;font-weight: bold;">vendor Primary details</h4>
+          </div>
+          <mat-card-content>
+            <form [formGroup]="vendorProfileForm1" (ngSubmit)="profileform1(vendorProfileForm1.value)">
+              <div class="profile-container">
+                <ng-template matStepLabel>
+                  <h4 style="font-family: sans-serif;font-size: larger;font-weight: bold;">Fill out your primary details
+                  </h4>
+                </ng-template>
+                <mat-form-field>
+                  <input matInput placeholder="Restarunt name" formControlName="restarunt_name">
+                  <mat-error *ngIf="submitted && vf1['restarunt_name'].hasError('required')">You must include Restarunt
+                    Name
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <textarea matInput placeholder="Address" formControlName="restarunt_address"></textarea>
+                  <mat-error *ngIf="submitted && vf1['restarunt_address'].hasError('required')">You must include Restarunt
+                    Address
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-select placeholder="Restarunt Type" formControlName="restarunt_type">
+                    <mat-option *ngFor="let type of restaruntTypes" [value]="type.value">
+                      {{type.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="submitted && vf1['restarunt_type'].hasError('required')">You must chose Restarunt Type
+                  </mat-error>
+                </mat-form-field>
+                <div class="button-row">
+                  <button mat-raised-button type="button" class="submit-button" matStepperNext>Next</button>
+                  <button mat-raised-button type="button" class="submit-button" color="warn"
+                    (click)="stepper.reset()">Reset</button>
+                  <button mat-raised-button type="submit" class="save-button">Save</button>
+                </div>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="vendorProfileForm2">
+      <div class="profile-card">
+        <mat-card>
+          <div class="text-center">
+            <h4 style="font-family: sans-serif;font-size: x-large;font-weight: bold;">vendor Primary details</h4>
+          </div>
+          <div mat-card-avatar class="profile_header"></div>
+          <mat-card-content>
+            <form [formGroup]="vendorProfileForm2" (ngSubmit)="profileform2(vendorProfileForm2.value)">
+              <div class="profile-container">
+                <ng-template matStepLabel>
+                  <h4 style="font-family: sans-serif;font-size: larger;font-weight: bold;">Fill out your Credentails</h4>
+                </ng-template>
+                <mat-form-field>
+                  <input matInput placeholder="Restarunt Id" formControlName="restarunt_id">
+                  <mat-error *ngIf="submitted && vf2['restarunt_id'].hasError('required')">You must include Restarunt Id
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Contact Number" formControlName="restarunt_contact_number">
+                  <mat-error *ngIf="submitted && vf2['restarunt_contact_number'].hasError('required')">You must include
+                    Restarunt Contact Number</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Restarunt Email" formControlName="restarunt_email">
+                  <mat-error *ngIf="submitted && vf2['restarunt_email'].hasError('required')">You must include Restarunt
+                    Email
+                  </mat-error>
+                  <mat-error *ngIf="submitted && vf2['restarunt_email'].hasError('email')">You must inlcude your valid
+                    mail
+                    address
+                  </mat-error>
+                </mat-form-field>
+                <div class="button-row">
+                  <button mat-raised-button type="button" class="submit-button" matStepperNext>Next</button>
+                  <button mat-raised-button type="submit" class="save-button">Save</button>
+                  <button mat-raised-button type="button" class="submit-button" color="warn"
+                    (click)="stepper.reset()">Reset</button>
+                  <button mat-raised-button type="button" class="submit-button" matStepperPrevious>Back</button>
+                </div>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-step>
+  
+    <mat-step [stepControl]="vendorProfileForm3">
+      <div class="profile-card">
+        <mat-card>
+          <div class="text-center">
+            <h4 style="font-family: sans-serif;font-size: x-large;font-weight: bold;">vendor Primary details</h4>
+          </div>
+          <div mat-card-avatar class="profile_header"></div>
+          <mat-card-content>
+            <form [formGroup]="vendorProfileForm3" (ngSubmit)="profileform3(vendorProfileForm3.value)">
+              <div class="profile-container">
+                <ng-template matStepLabel>
+                  <h4 style="font-family: sans-serif;font-size: larger;font-weight: bold;">About your Restarunt</h4>
+                </ng-template>
+                <mat-form-field>
+                  <textarea matInput placeholder="About The Restarunt" formControlName="restarunt_description"></textarea>
+                  <mat-error *ngIf="submitted && vf3['restarunt_description'].hasError('required')">You must include
+                    Restarunt Description</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="time" matInput placeholder="Opening Time" formControlName="restarunt_opening_time">
+                  <mat-error *ngIf="submitted && vf3['restarunt_opening_time'].hasError('required')">You must include
+                    Restarunt Opening Time</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="time" matInput placeholder="Closing Time" formControlName="restarunt_closing_time">
+                  <mat-error *ngIf="submitted && vf3['restarunt_closing_time'].hasError('required')">You must include
+                    Restarunt Closing Time</mat-error>
+                </mat-form-field>
+                <div>
+                  <input type="file" (change)="onFileChange($event)" formControlName="restarunt_image" />
+                  <img [src]="image_url" height=200px style="padding-top: 14px;
+                  padding-bottom: 14px;">
+                  <mat-error *ngIf="submitted && vf3['restarunt_image'].hasError('required')">You must include Restarunt
+                    Image
+                  </mat-error>
+                </div>
+                <div class="button-row">
+                  <button mat-raised-button type="submit" class="save-button">Save</button>
+                  <button mat-raised-button type="button" class="submit-button" color="warn"
+                    (click)="stepper.reset()">Reset</button>
+                  <button mat-raised-button type="button" class="submit-button" matStepperPrevious>Back</button>
+                </div>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>

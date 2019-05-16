@@ -1,0 +1,77 @@
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" fxLayout="row">
+      <mat-toolbar-row>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+
+        <span class="example-spacer"></span>
+        <div mat-card-avatar class="header-image">
+        </div>
+        <h4 class="title-spacer">Feed The Need</h4>
+        <span class="example-spacer"></span>
+        <button class="icon" mat-icon-button aria-label="Example icon-button with a heart icon">
+
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button class="icon" mat-icon-button aria-label="Example icon-button with a notifications icon">
+          <mat-icon>notifications</mat-icon>
+        </button>
+        <button class="icon" mat-icon-button aria-label="Example icon-button with a settings icon"
+          [matMenuTriggerFor]="settings">
+          <mat-icon>settings</mat-icon>
+        </button>
+        <mat-menu #settings="matMenu">
+          <button mat-menu-item>
+            <mat-icon>account_circle</mat-icon>
+            <a routerLink="../vendor/profile">Profile</a>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>lock</mat-icon>
+            <a routerLink="../vendor/forgotpassword">Change password</a>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications</mat-icon>
+            <span>Disable alerts</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon matPrefix>logout</mat-icon>
+            <a routerLink="../vendor/login" (click)=logout()>Logout</a>
+          </button>
+        </mat-menu>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  <mat-sidenav #drawer mode="side" opened="false" class="sidenav">
+    <mat-nav-list style="padding-top: 0px">
+      <div class="text-center">
+        <img class="logo-image" src="../../../assets/images/logo2Copy.png" alt="Feed The Need">
+        <h4 style="padding:.5000em;font-family: sans-serif;font-size: larger;font-weight: bold;">Feed The Need</h4>
+      </div>
+      <mat-divider></mat-divider>
+      <mat-toolbar-row>
+        <mat-icon color="primary" matPrefix>account_circle</mat-icon>
+        <a routerLink="../vendor/profile">Profile</a>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        <mat-icon color="primary" matPrefix>add_circle</mat-icon>
+        <a routerLink="../vendor/items/additem">Add Items</a>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        <mat-icon color="primary" matPrefix>add_circle</mat-icon>
+        <a routerLink="../vendor/items/getitems">Get Items</a>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        <mat-icon color="primary" matPrefix>add_shopping_cart</mat-icon>
+        <a routerLink="../vendor/orders">Order Details</a>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        <mat-icon color="primary" matPrefix>logout</mat-icon>
+        <a routerLink="../vendor/login" (click)=logout()>Logout</a>
+      </mat-toolbar-row>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>
