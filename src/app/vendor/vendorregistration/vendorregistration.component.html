@@ -22,8 +22,9 @@
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field>
-                        <input matInput placeholder="Enter your password" formControlName="password" required>
-                       <!-- <mat-icon matSuffix>lock</mat-icon>
+                        <input matInput placeholder="Enter your password" formControlName="password" [type]="!hide ? 'password' : 'text'" required>
+						<mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <!-- <mat-icon matSuffix>lock</mat-icon>
                       -->  <mat-error *ngIf="submitted && vf['password'].hasError('required')">You must inlcude your password
                         </mat-error>
                     </mat-form-field>

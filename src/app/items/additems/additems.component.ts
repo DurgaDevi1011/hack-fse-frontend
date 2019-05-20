@@ -85,6 +85,7 @@ export class AdditemsComponent implements OnInit {
     else {
       this.itemservice.createItem(form)
         .subscribe(res => {
+          console.log(res);
           let config = new MatSnackBarConfig();
           config.duration = 5000;
           config.panelClass = ['success-snackbar'];
