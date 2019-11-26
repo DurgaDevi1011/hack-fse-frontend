@@ -4,6 +4,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { NguCarouselModule } from '@ngu/carousel';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
@@ -20,19 +21,17 @@ import { AuthGuard } from '../app/dashboard/guards/auth-guard.service';
 import { DeliveryboyAuthGuard } from '../app/deliveryboy/guards/auth-guard.service';
 import { UserAuthGuard } from './user/guards/userAuth-guard.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { CartComponent } from './cart/cart.component'
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
     HomeComponent,
     RestaurantsComponent,
-    SearchrestaurantsComponent,
-    CheckoutComponent,
-    CartComponent
+    SearchrestaurantsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,12 +49,13 @@ import { CartComponent } from './cart/cart.component'
     ReactiveFormsModule,
     NguCarouselModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
 
-  exports:[FormsModule,ReactiveFormsModule],
+  exports: [FormsModule, ReactiveFormsModule],
 
-  providers: [AuthGuard, DeliveryboyAuthGuard, UserAuthGuard, Globals],
+  providers: [AuthGuard, DeliveryboyAuthGuard, UserAuthGuard, Globals, SearchrestaurantsComponent],
 
   bootstrap: [AppComponent]
 })
