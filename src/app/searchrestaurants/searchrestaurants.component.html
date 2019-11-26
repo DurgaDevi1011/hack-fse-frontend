@@ -1,173 +1,25 @@
-    <!-- content-section-starts -->
-    <app-header></app-header>
-      <div class="Popular-Restaurants-content">
-        <div class="Popular-Restaurants-grids">
-          <div class="container">
-            <div class="Popular-Restaurants-grid wow fadeInRight" data-wow-delay="0.4s">
-                <div class="row">
-                    <div class="col-md-12">
-                      <div class="col-md-3"  *ngFor="let restaurant of restaurantData">
-                          <figure>
-                              <img [src]="restaurant.restarunt_image" class="img-responsive" alt="" />
-                              <figcaption>
-                                  <h4 class="res-name">{{restaurant.restarunt_name}}</h4>
-                                  <h6 class="res_cat">{{restaurant.restarunt_type}}</h6>
-                                  <div class="col-md-4 rect pmzeor mt5">
-                                      <div class="col-md-6">
-                                          <span class="fa fa-star"></span>
-                                      </div>
-                                      <div class="col-md-6">
-                                          <span>4</span>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-5 mt5">{{restaurant.restarunt_address}}</div>
-                                    <div class="col-md-5 mt5"> 41 mins</div> 
-                                    <div class="col-md-3 pull-right mt5"><a
-                                      routerLink="/restaurants/{{restaurant._id}}"
-                                      href='#'>VIEW</a></div> 
-                            </figcaption>   
-                            </figure>
-                        </div>
-                       <!-- <div class="col-md-3">
-                            <figure>
-                            <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/vecskejqjzsxsc0tdiio" class="img-responsive" alt="" />
-                            <figcaption>
-                                <h4 class="res-name">Ragam Cake shop</h4>
-                                <h6 class="res_cat">Bakery</h6>
-                                <div class="col-md-4 rect pmzeor mt5">
-                                    <div class="col-md-6">
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span>4</span>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-5 mt5"> 41 mins</div> 
-                                  <div class="col-md-3 pull-right mt5"><a href='#'>VIEW</a></div> 
-                                </figcaption>   
-                              </figure>
-                          </div>
-                        <div class="col-md-3">
-                            <figure>
-                          <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/i28yltkpsean8v64c0v4" class="img-responsive" alt="" />
-                          <figcaption>
-                              <h4 class="res-name">Ragam Cake shop</h4>
-                              <h6 class="res_cat">Bakery</h6>
-                              <div class="col-md-4 rect pmzeor mt5">
-                                  <div class="col-md-6">
-                                      <span class="fa fa-star"></span>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <span>4</span>
-                                  </div>
-                                </div>
-                                <div class="col-md-5 mt5"> 41 mins</div> 
-                                <div class="col-md-3 pull-right mt5"><a href='#'>VIEW</a></div> 
-                              </figcaption>   
-                          </figure>
-                      </div>                                      
-                      <div class="col-md-3">
-                          <figure>
-                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/u627gj5r4pco2aiujklg" class="img-responsive" alt="" />
-                        <figcaption>
-                            <h4 class="res-name">Ragam Cake shop</h4>
-                            <h6 class="res_cat">Bakery</h6>
-                            <div class="col-md-4 rect pmzeor mt5">
-                                <div class="col-md-6">
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="col-md-6">
-                                    <span>4</span>
-                                </div>
-                              </div>
-                              <div class="col-md-5 mt5"> 41 mins</div> 
-                              <div class="col-md-3 pull-right mt5"><a href='#'>VIEW</a></div> 
-                            </figcaption>   
-                      </figure>
-                  </div> -->                                     
-              </div>
-                </div>    
-              <div class="clearfix"></div>
+<app-header [cartprices]='carttotal' [cartStatus]='cartstatus' [(cartProductdetails)]='cartProductdetails'></app-header>
+<div class="Popular-Restaurants-content">
+  <div class="Popular-Restaurants-grids">
+    <div class="container">
+      <div class="Popular-Restaurants-grid wow fadeInRight" data-wow-delay="0.4s">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-3" *ngFor="let restaurant of restaurantData">
+              <figure>
+                <a routerLink="/restaurants/{{restaurant._id}}">
+                  <img [src]="restaurant.restarunt_image" style="height:250px" class="img-responsive" alt="" />
+                </a>
+                <figcaption>
+                  <h4 class="res-name text-center">{{restaurant.restarunt_name}}</h4>
+                  <div class="text-center">{{restaurant.restarunt_address}}</div>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="contact-section" id="contact">
-          <div class="container">
-            <div class="contact-section-grids">
-              <div class="col-md-3 contact-section-grid wow fadeInLeft" data-wow-delay="0.4s">
-                <h4>Site Links</h4>
-                <ul>
-                  <li><i class="point"></i></li>
-                  <li class="data"><a href="#">About Us</a></li>
-                </ul>
-                <ul>
-                  <li><i class="point"></i></li>
-                  <li class="data"><a href="#">Contact Us</a></li>
-                </ul>
-                <ul>
-                  <li><i class="point"></i></li>
-                  <li class="data"><a href="#">Privacy Policy</a></li>
-                </ul>
-                <ul>
-                  <li><i class="point"></i></li>
-                  <li class="data"><a href="#">Terms of Use</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 contact-section-grid wow fadeInLeft" data-wow-delay="0.4s">
-                <h4>Site Links</h4>
-                <ul>
-                  <li><i class="point"></i></li>
-                  <li class="data"><a href="#">About Us</a></li>
-                </ul>
-                <ul>
-                  <li><i class="point"></i></li>
-                  <li class="data"><a href="#">Contact Us</a></li>
-                </ul>
-                <ul>
-                  <li><i class="point"></i></li>
-                  <li class="data"><a href="#">Privacy Policy</a></li>
-                </ul>
-                <ul>
-                  <li><i class="point"></i></li>
-                  <li class="data"><a href="#">Terms of Use</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 contact-section-grid wow fadeInRight" data-wow-delay="0.4s">
-                <h4>Follow Us On...</h4>
-                <ul>
-                  <li><i class="fb"></i></li>
-                  <li class="data"> <a href="#">  Facebook</a></li>
-                </ul>
-                <ul>
-                  <li><i class="tw"></i></li>
-                  <li class="data"> <a href="#">Twitter</a></li>
-                </ul>
-                <ul>
-                  <li><i class="in"></i></li>
-                  <li class="data"><a href="#"> Linkedin</a></li>
-                </ul>
-                <ul>
-                  <li><i class="gp"></i></li>
-                  <li class="data"><a href="#">Google Plus</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 contact-section-grid nth-grid wow fadeInRight" data-wow-delay="0.4s">
-                <h4>Subscribe Newsletter</h4>
-                <p>To get latest updates and food deals every week</p>
-                <input type="text" class="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
-                <input type="submit" value="submit">
-                </div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-        </div>
-      <!-- content-section-ends -->
-      <!-- footer-section-starts -->
-      <div class="footer">
-        <div class="container">
-          <p class="wow fadeInLeft" data-wow-delay="0.4s">&copy; 2014  All rights  Reserved | Template by &nbsp;<a href="http://w3layouts.com" target="target_blank">W3Layouts</a></p>
-        </div>
-      </div>
-      <!-- footer-section-ends -->
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
